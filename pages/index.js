@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Bonhomme - Developer</title>
+        <title>Hardik Gupta</title>
       </Head>
       <Cursor />
 
@@ -21,15 +21,16 @@ export default function Home() {
           <GridItem colSpan={3}>
             <Box>
               <Heading as="h1" size="lg">
-                Maxime Bonhomme
+                Hardik Gupta
               </Heading>
-              <Text>Product-focused Developer</Text>
+              <Text>24. Graduate Student. Computer Science.</Text>
+              <Text></Text>
               <Link
                 color="white"
                 opacity={0.5}
-                href="https://etherscan.io/address/0xff5fe6e0d3d48c90a66217dd4a7560a3ed8dacd2"
+                href="/resume.pdf"
               >
-                bonhomme.eth
+                Resume
               </Link>
             </Box>
           </GridItem>
@@ -120,27 +121,27 @@ export default function Home() {
           </Heading>
 
           <Experience
+            side="Email"
+            title="@hardikgupta1999"
+            href="mailto:hardikgupta1999@gmail.com"
+            mb={4}
+          />
+          <Experience
             side="Github"
-            title="@maximebonhomme"
-            href="https://github.com/maximebonhomme"
+            title="@hardikkgupta"
+            href="https://github.com/hardikkgupta"
             mb={4}
           />
           <Experience
-            side="Etherscan"
-            title="bonhomme.eth"
-            href="https://etherscan.io/address/0xff5fe6e0d3d48c90a66217dd4a7560a3ed8dacd2"
+            side="X"
+            title="@HardikkGuptaa"
+            href="https://x.com/HardikkGuptaa"
             mb={4}
           />
           <Experience
-            side="Foundation"
+            side="Good"
             title="@bonhomme"
             href="https://foundation.app/@bonhomme?tab=owned"
-            mb={4}
-          />
-          <Experience
-            side="Twitter"
-            title="@pixel_arts"
-            href="https://twitter.com/pixel_arts"
             mb={4}
           />
         </Box>
