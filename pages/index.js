@@ -23,7 +23,7 @@ export default function Home() {
               <Heading as="h1" size="lg">
                 Hardik Gupta
               </Heading>
-              <Text>24. Graduate Student. Computer Science.</Text>
+              <Text>24. Graduate Student. Robots / Computer Science.</Text>
               <Text></Text>
               <Link
                 color="white"
@@ -40,11 +40,73 @@ export default function Home() {
             About
           </Heading>
           <Text>
-            GM, I'm Max. I enjoy building dynamic, creative products from start to
-            finish. Focused on developing intuitive experiences that constantly grow and
-            improve based on user metrics. Always shipping.
+            I am a <s>first-year</s> second-year graduate student at <a href="https://twin-cities.umn.edu/">University of Minnesota,
+            Twin Cities</a>, pursuing a Master’s in Robotics. Prior to this, I completed a Bachelor's in Mechanical Engineering and 
+            a Master's in Biological Sciences at <a href="https://www.bits-pilani.ac.in/">Birla Institute of Technology and Science 
+            (BITS), Pilani, India</a>. Focused on developing better models for robots that constantly grow and improve.
           </Text>
-        </Box>
+          </Box>
+
+          <Box mb={14}>
+          <Heading as="h2" size="md" mb={10}>
+            Education
+          </Heading>
+
+          <Experience
+            href="https://twin-cities.umn.edu/"
+            side="2023 - present"
+            title="University of Minnesota, Twin Cities"
+            desc="Master's (M.Sc.) in Robotics"
+            stack="Aritificial Intelligence • Computer Vision • Machine Learning • Reinforcement Learning • Natural Language Processing • Robotic Systems"
+          />
+
+          <Experience
+            href="https://www.bits-pilani.ac.in/"
+            side="2018 - 2023"
+            title="Birla Institute of Technology and Science"
+            desc="Bachelor's (B.E.) in Mechanical Engineering and 
+            Master's (M.Sc.) in Biological Science"
+            stack = "Robotics • Autonomous Mobile Robotics • Engines Motors and Mobility • Vibrations and Control • Optimization..."
+          />
+        
+        <Heading as="h2" size="md" mt={14} mb={10}>
+            Projects
+          </Heading>
+
+          <Experience
+            href="https://rentfree-app.vercel.app/"
+            side="Jun 2024"
+            title="RentFree - WebApp"
+            desc="Making hot sauces with a friend, made in Brittany with local ingredients."
+            stack="React • NodeJS • MongoDB • Express • AWS"
+          />
+          <Experience
+            href="https://github.com/hardikkgupta/apple-detection"
+            side="Dec 2023"
+            title="Apple Detection and Counting"
+            desc="Implemented an apple detection pipeline with YOLOv8, achieving 85.2% 
+            accuracy. Developed 3D point clouds using COLMAP and DBSCAN for clustering 
+            apple points. Applied RANSAC for ground and trunk detection, improving yield 
+            estimation by 16%."
+            stack="Python • YOLOv8 • 3D Reconstrution • Filtering"
+          />
+          <Experience
+            href="/thesis.pdf"
+            side="Dec 2022"
+            title="Trajectory and Collision Avoidance"
+            desc="Simulated a Nonlinear Model Predictive Control of the single robotic system for collision avoidance in a dynamic obstacle environment."
+            stack="Python • Control • Optimization • Path Planning"
+          />
+          <Experience
+            href="https://link.springer.com/article/10.1007/s00284-023-03298-w"
+            side="Oct 2022"
+            title={<span>Phylogenetic Study of the CRISPR-Cas</span>}
+            desc={<span>Systematically investigate the evolutionary 
+              framework of the CRISPR-Cas system in six <em>Enterobacteriaceae</em> species and 
+              its evolutionary association with housekeeping genes as determined by the gyrB phenogram.</span>}
+            stack="Clustering Algorithms • BLAST • Data Analysis"
+          />
+        
         <Box mb={14}>
           <Heading as="h2" size="md" mb={10}>
             Work Experience
@@ -81,42 +143,6 @@ export default function Home() {
           />
 
           <Heading as="h2" size="md" mt={14} mb={10}>
-            Side Projects
-          </Heading>
-
-          <Experience
-            href="https://www.instagram.com/dolenn.bzh"
-            image="/dolenn-single.png"
-            side="ongoing"
-            title="Dolenn - Hot Sauce"
-            desc="Making hot sauces with a friend, made in Brittany with local ingredients."
-            stack="Design • Illustration • Packaging • Cooking"
-          />
-          <Experience
-            href="https://offline.london"
-            image="/offline-favicon.png"
-            side="2024"
-            title="Offline Nostalgia"
-            desc="Generative art project around the offline era. Physical mint."
-            stack="Solidity • IYK Chips • fully onchain"
-          />
-          <Experience
-            image="/tamiko.svg"
-            side="Paused"
-            title="Tamiko"
-            desc="Tamiko are non-fungible friends that live completely on-chain. You can hatch, feed, breed and evolve them."
-            stack="Solidity • ERC721 • ERC1155 • Next.js"
-          />
-          <Experience
-            href="https://kineticspectru.ms/"
-            image="/kineticspectrum.png"
-            side="2022"
-            title="Kinetic Spectrums"
-            desc="Generative on-chain NFTs. A collection of dynamic, ever changing artworks."
-            stack="Solidity • ERC721 • Next.js"
-          />
-
-          <Heading as="h2" size="md" mt={14} mb={10}>
             Links
           </Heading>
 
@@ -133,18 +159,19 @@ export default function Home() {
             mb={4}
           />
           <Experience
+            side="LinkedIn"
+            title="@hardikguptaa"
+            href="https://www.linkedin.com/in/hardikguptaa/"
+            mb={4}
+          />
+          <Experience
             side="X"
             title="@HardikkGuptaa"
             href="https://x.com/HardikkGuptaa"
             mb={4}
           />
-          <Experience
-            side="Good"
-            title="@bonhomme"
-            href="https://foundation.app/@bonhomme?tab=owned"
-            mb={4}
-          />
         </Box>
+      </Box>
       </Box>
     </>
   )
