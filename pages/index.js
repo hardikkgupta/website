@@ -53,6 +53,7 @@ export default function Home() {
           </Heading>
 
           <Experience
+            image="grad_logo.png"
             href="https://twin-cities.umn.edu/"
             side="2023 - present"
             title="University of Minnesota, Twin Cities"
@@ -61,6 +62,7 @@ export default function Home() {
           />
 
           <Experience
+            image="undergrad_logo.png"
             href="https://www.bits-pilani.ac.in/"
             side="2018 - 2023"
             title="Birla Institute of Technology and Science"
