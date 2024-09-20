@@ -1,4 +1,4 @@
-import { Link, Box, Text, Heading, GridItem } from "@chakra-ui/react"
+import { Link, Box, Text, Heading, GridItem, SimpleGrid, Tag, Wrap, WrapItem } from "@chakra-ui/react"
 import Head from "next/head"
 import { Grid } from "../components/Grid"
 import { Experience } from "../components/Experience"
@@ -115,36 +115,30 @@ export default function Home() {
           </Heading>
 
           <Experience
-            image="/ubs.png"
-            href="https://iyk.app"
-            side="2022 - present"
-            title="Senior Frontend Engineer – IYK"
-            desc="Building the Whole Wide World﹡"
-            stack="Remix • Prisma • Tailwind • Shadcn"
-          />
-          <Experience
-            href="https://everpress.com/"
-            side="2020 - 2022"
-            title="Full Stack & Technical Lead – Everpress"
-            desc="Led a team of 5 engineers to develop our creator tools and e-commerce
-        app. Collaborated closely with the Head of Product to track our tactical
-        objectives, improve technical directions and shipping frequency."
-            stack="React • Redux • Symfony • AWS"
-          />
-          <Experience
-            side="2016 – 2020"
-            title="Front End Engineer – Freelance"
-            desc="Worked with a range of large and small agencies, start-ups and individuals to build products. Clients included Marvel App, United Nations, Netflix, Dropbox Design."
-            stack="React • Redux • Styled Components • Framer Motion"
-          />
-          <Experience
-            href="https://neverbland.com/"
-            side="2014 – 2016"
-            title="Front End Engineer – Neverbland"
-            desc="Part of a tight-knit team of designers, developers and critical thinkers, I built MVP products and marketing experiences for start-ups."
-            stack="React • Redux • CSSModules • Three.js"
+            image="/grad_logo.png"
+            href="https://twin-cities.umn.edu/"
+            side="Jun 2024 - Sep 2024"
+            title="Graduate Research Assistant"
+            desc="Collaborated on developing a Bayesian
+             inference model to analyze consumer decision-making
+            using LLMs for optimal product evaluation. 
+            Conducted research on Transformer architecture, 
+            including tokenization and attention mechanisms, 
+            to understand Generative AI's role in consumer behavior."
           />
 
+          <Experience
+            image="/ubs.png"
+            href="https://www.ubs.com/us/en.html"
+            side="Feb 2023 - Jun 2023"
+            title="Financial Analyst Intern"
+            desc="Automated the analysis of Pension IPV,
+             reducing CPV graph preparation time by 40%.
+              Utilized Python, UBS tools, Totem, and 
+              Bloomberg to enhance financial data analysis"
+            stack="Python • Excel Macros • VBA"
+          />
+          
           <Heading as="h2" size="md" mt={14} mb={10}>
             Links
           </Heading>
