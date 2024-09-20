@@ -115,6 +115,7 @@ export default function Home() {
           </Heading>
 
           <Experience
+            image="/ubs.png"
             href="https://iyk.app"
             side="2022 - present"
             title="Senior Frontend Engineer – IYK"
