@@ -43,9 +43,8 @@ export default function Home() {
           </Heading>
           <Text>
             I am a <s>first-year</s> second-year graduate student at <a href="https://twin-cities.umn.edu/">University of Minnesota,
-            Twin Cities</a>, pursuing a Master’s in Robotics. Prior to this, I completed a Bachelor's in Mechanical Engineering and 
-            a Master's in Biological Sciences at <a href="https://www.bits-pilani.ac.in/">Birla Institute of Technology and Science 
-            (BITS), Pilani, India</a>. Focused on developing better models for robots that constantly grow and improve.
+            Twin Cities</a>, pursuing a Master’s in Robotics. Right now, I am working as a Graduate Teaching Assistant, helping students
+            bit by bit.
           </Text>
           </Box>
 
