@@ -32,6 +32,8 @@ export default function Home() {
               >
                 Resume
               </Link>
+              <Text></Text>
+
             </Box>
           </GridItem>
         </Grid>
@@ -58,7 +60,8 @@ export default function Home() {
             side="2023 - present"
             title="University of Minnesota, Twin Cities"
             desc="Master's (M.Sc.) in Robotics"
-            stack="Aritificial Intelligence • Computer Vision • Machine Learning • Reinforcement Learning • Natural Language Processing • Robotic Systems"
+            stack="Aritificial Intelligence • Computer Vision • Machine Learning • 
+            Reinforcement Learning • Natural Language Processing • Robotic Systems"
           />
 
           <Experience
@@ -68,25 +71,29 @@ export default function Home() {
             title="Birla Institute of Technology and Science"
             desc="Bachelor's (B.E.) in Mechanical Engineering and 
             Master's (M.Sc.) in Biological Science"
-            stack = "Robotics • Autonomous Mobile Robotics • Engines Motors and Mobility • Vibrations and Control • Optimization..."
+            stack = "Robotics • Autonomous Mobile Robotics • Engines Motors and Mobility • Vibrations and Control • Optimization"
           />
         
         <Heading as="h2" size="md" mt={14} mb={10}>
             Projects
           </Heading>
 
+          
+
           <Experience
             href="https://rentfree-app.vercel.app/"
             side="Jun 2024"
             title="RentFree - WebApp"
-            desc="Making hot sauces with a friend, made in Brittany with local ingredients."
+            desc="Full stack web application enabling users to list, search, and manage rental properties
+            and integrating secure user authentication and authorization with real-time updates on 
+            property availability and inquiries"
             stack="React • NodeJS • MongoDB • Express • AWS"
           />
           <Experience
             href="https://github.com/hardikkgupta/apple-detection"
             side="Dec 2023"
             title="Apple Detection and Counting"
-            desc="Implemented an apple detection pipeline with YOLOv8, achieving 85.2% 
+            desc="Apple detection pipeline with YOLOv8, achieving 85.2% 
             accuracy. Developed 3D point clouds using COLMAP and DBSCAN for clustering 
             apple points. Applied RANSAC for ground and trunk detection, improving yield 
             estimation by 16%."
@@ -96,7 +103,8 @@ export default function Home() {
             href="/thesis.pdf"
             side="Dec 2022"
             title="Trajectory and Collision Avoidance"
-            desc="Simulated a Nonlinear Model Predictive Control of the single robotic system for collision avoidance in a dynamic obstacle environment."
+            desc="Nonlinear Model Predictive Control of the single robotic system 
+            for collision avoidance in a dynamic obstacle environment."
             stack="Python • Control • Optimization • Path Planning"
           />
           <Experience
@@ -117,7 +125,7 @@ export default function Home() {
           <Experience
             image="/grad_logo.png"
             href="https://twin-cities.umn.edu/"
-            side="Jun 2024 - Sep 2024"
+            side="Jun 2024 - present"
             title="Graduate Research Assistant"
             desc="Collaborated on developing a Bayesian
              inference model to analyze consumer decision-making
@@ -125,6 +133,7 @@ export default function Home() {
             Conducted research on Transformer architecture, 
             including tokenization and attention mechanisms, 
             to understand Generative AI's role in consumer behavior."
+            stack="Large Language Models • Mathematical Modeling"
           />
 
           <Experience
@@ -165,6 +174,12 @@ export default function Home() {
             side="X"
             title="@HardikkGuptaa"
             href="https://x.com/HardikkGuptaa"
+            mb={4}
+          />
+          <Experience
+            side="Leetcode"
+            title="@hardikkgupta"
+            href="https://leetcode.com/u/hardikkgupta/"
             mb={4}
           />
         </Box>

@@ -12,8 +12,8 @@ const wagmiConfig = createConfig(
     chains: [mainnet],
     infuraId: "ca44ce9a485946dc9625c88bd5431eed",
     walletConnectProjectId: "725416c0a4e3389225cf458a96ea7cca",
-    appName: "Bonhomme",
-    appDescription: "Maxime Bonhomme - Product-focused Developer",
+    appName: "Hardik",
+    appDescription: "Hardik Gupta",
     appUrl: "https://bonhomme.lol",
     appIcon: "https://bonhomme.lol/favicon.png",
   })
