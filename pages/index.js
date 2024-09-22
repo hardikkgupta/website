@@ -43,8 +43,7 @@ export default function Home() {
           </Heading>
           <Text>
             I am a <s>first-year</s> second-year graduate student at <a href="https://twin-cities.umn.edu/">University of Minnesota,
-            Twin Cities</a>, pursuing a Master’s in Robotics. Right now, I am working as a Graduate Teaching Assistant, helping students
-            bit by bit.
+            Twin Cities</a>, pursuing a Master’s in Robotics. Currently, I serve as a Graduate Teaching Assistant, mentoring students.
           </Text>
           </Box>
 
@@ -76,8 +75,6 @@ export default function Home() {
         <Heading as="h2" size="md" mt={14} mb={10}>
             Projects
           </Heading>
-
-          
 
           <Experience
             href="https://rentfree-app.vercel.app/"
@@ -183,6 +180,9 @@ export default function Home() {
           />
         </Box>
       </Box>
+      <p>A big shoutout to Maxime Bonhomme for his awesome <a href="https://github.com/maximebonhomme/bonhomme-2022" 
+      target="_blank" rel="noopener noreferrer">website 
+         repository!</a></p>
       </Box>
     </>
   )

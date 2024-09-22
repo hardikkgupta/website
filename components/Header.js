@@ -1,5 +1,5 @@
 import { Flex, Image } from "@chakra-ui/react"
-import { ConnectKitButton } from "connectkit"
+// import { ConnectKitButton } from "connectkit"
 import { useEffect, useState } from "react"
 
 export const Header = () => {
@@ -9,7 +9,7 @@ export const Header = () => {
     setMounted(true)
   }, [])
 
-  if (!hasMounted) return false
+  if (!hasMounted) return null
 
   return (
     <Flex
@@ -23,7 +23,7 @@ export const Header = () => {
     >
       <Image src="/logo.svg" alt="Bonhomme" />
 
-      <ConnectKitButton accountStatus="avatar" chainStatus="icon" showBalance={false} />
+      {/* <ConnectKitButton accountStatus="avatar" chainStatus="icon" showBalance={false} /> */}
     </Flex>
   )
 }

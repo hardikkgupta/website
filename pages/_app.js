@@ -4,7 +4,8 @@ import { WagmiConfig, createConfig, mainnet } from "wagmi"
 import { theme } from "../utils/theme"
 import { Header } from "../components/Header"
 import "../styles/globals.css"
-import { ConnectKitProvider, getDefaultConfig } from "connectkit"
+// import { ConnectKitProvider, getDefaultConfig } from "connectkit"
+import { getDefaultConfig } from "connectkit"
 
 const wagmiConfig = createConfig(
   getDefaultConfig({
@@ -22,12 +23,12 @@ const wagmiConfig = createConfig(
 export default function App({ Component, pageProps }) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <ConnectKitProvider>
+      {/* <ConnectKitProvider> */}
         <ChakraProvider theme={theme}>
           <Header />
           <Component {...pageProps} />
         </ChakraProvider>
-      </ConnectKitProvider>
+      {/* </ConnectKitProvider> */}
     </WagmiConfig>
   )
 }
