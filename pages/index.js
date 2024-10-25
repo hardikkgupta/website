@@ -77,9 +77,22 @@ export default function Home() {
           </Heading>
 
           <Experience
+            href="https://github.com/hardikkgupta/ml-e2e"
+            side="Oct 2024"
+            title={<span>End-to-End Machine Learning Model</span>}
+            image="/titanic.png"
+            desc={<span>Logistic Regression model to predict passenger survival on the Titanic. 
+              The project encompasses model serialization, deployment as a RESTful API using Flask, 
+              containerization with Docker, and establishing CI/CD pipelines to automate testing and 
+              deployment on AWS EC2.</span>}
+            stack="Python • Flask • Docker • AWS • CI/CD"
+          />
+
+          <Experience
             href="https://rentfree-app.vercel.app/"
             side="Jun 2024"
             title="RentFree - WebApp"
+            image="/cheron.png"
             desc="Full stack web application enabling users to list, search, and manage rental properties
             and integrating secure user authentication and authorization with real-time updates on 
             property availability and inquiries"
@@ -89,21 +102,14 @@ export default function Home() {
             href="https://github.com/hardikkgupta/apple-detection"
             side="Dec 2023"
             title="Apple Detection and Counting"
+            image="/apple.png"
             desc="Apple detection pipeline with YOLOv8, achieving 85.2% 
             accuracy. Developed 3D point clouds using COLMAP and DBSCAN for clustering 
             apple points. Applied RANSAC for ground and trunk detection, improving yield 
             estimation by 16%."
             stack="Python • YOLOv8 • 3D Reconstrution • Filtering"
           />
-          <Experience
-            href="/thesis.pdf"
-            side="Dec 2022"
-            title="Trajectory and Collision Avoidance"
-            desc="Nonlinear Model Predictive Control of the single robotic system 
-            for collision avoidance in a dynamic obstacle environment."
-            stack="Python • Control • Optimization • Path Planning"
-          />
-          <Experience
+          {/* <Experience
             href="https://link.springer.com/article/10.1007/s00284-023-03298-w"
             side="Oct 2022"
             title={<span>Phylogenetic Study of the CRISPR-Cas</span>}
@@ -111,8 +117,8 @@ export default function Home() {
               framework of the CRISPR-Cas system in six <em>Enterobacteriaceae</em> species and 
               its evolutionary association with housekeeping genes as determined by the gyrB phenogram.</span>}
             stack="Clustering Algorithms • BLAST • Data Analysis"
-          />
-        
+          /> */}
+
         <Box mb={14}>
           <Heading as="h2" size="md" mb={10}>
             Work Experience
@@ -143,6 +149,23 @@ export default function Home() {
               Bloomberg to enhance financial data analysis"
             stack="Python • Excel Macros • VBA"
           />
+
+          {/* <Box mb={14}>
+          <Heading as="h2" size="md" mb={10}>
+            Publications
+          </Heading>
+          
+          <Experience
+            href="https://link.springer.com/article/10.1007/s00284-023-03298-w"
+            side="Apr 2023"
+            title="The Phylogenetic Study of the CRISPR-Cas System in <em>Enterobacteriaceae</em>"
+            desc="Systematically investigate the evolutionary 
+              framework of the CRISPR-Cas system in six <em>Enterobacteriaceae</em> species and 
+              its evolutionary association with housekeeping genes as determined by the gyrB phenogram."
+            stack="Python • Excel Macros • VBA"
+          />
+          </Box> */}
+
           
           <Heading as="h2" size="md" mt={14} mb={10}>
             Links
