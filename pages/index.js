@@ -69,7 +69,7 @@ export default function Home() {
           />
 
           <Experience
-            image="undergrad_logo.png"
+            image="bits.png"
             href="https://www.bits-pilani.ac.in/"
             side="2018 - 2023"
             title="Birla Institute of Technology and Science"
@@ -81,6 +81,20 @@ export default function Home() {
           <Heading as="h2" size="md" mt={14} mb={10}>
             Projects
           </Heading>
+
+          <Experience
+            href="https://github.com/hardikkgupta/fact-checker"
+            side="Feb 2025"
+            title={<span>Fact-Checker</span>}
+            image="/politician.png"
+            desc={
+              <span>
+                RAG system that lets you ask questions about Tim Walz and receive concise fact-checking answers with authorized sources.
+                (For @AI x Journalism Hackathon)
+              </span>
+            }
+            stack="Python • Flask • Docker • AWS • CI/CD"
+          />
 
           <Experience
             href="https://github.com/hardikkgupta/ml-e2e"
@@ -140,6 +154,51 @@ export default function Home() {
               stack="Python • Excel Macros • VBA"
             />
 
+            <Box mb={14}>
+            <Heading as="h2" size="md" mb={10}>
+              Other Collaborations
+            </Heading>
+            <Experience
+              image="/iitg.svg"
+              href="https://www.bits-pilani.ac.in/"
+              side="Dec 2019 - May 2022"
+              title="Summer Researcher"
+              desc="Worked on robotic grasping using Haar Wavelet Transform to detect slip and load, which modeled the appropriate force range"
+              stack="Python • Data Analysis"
+            />
+            <Experience
+              image="/bits.png"
+              href="https://www.bits-pilani.ac.in/"
+              side="Dec 2019 - May 2022"
+              title="Undergraduate Student Researcher"
+              desc="Worked on three different projects: Evolutionary bioinformatics, Design of PEM cell and Hodgkin-Huxley model"
+              stack="Python • Data Analysis"
+            />
+
+            <Experience
+              image="/ericsson.png"
+              href="https://www.ericsson.com/en"
+              side="Aug 2020 - Dec 2020"
+              title="Data Scientist Intern Intern"
+              desc="Pre-processed and analyzed the telecom's site outage parameters’ and developed a primary machine learning classification pipeline for the same."
+              stack="Python • Data Analysis"
+            />
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <Heading as="h2" size="md" mt={14} mb={10}>
               Links
             </Heading>
@@ -179,6 +238,7 @@ export default function Home() {
               mb={4}
               toggleable={false}
             />
+          </Box>
           </Box>
         </Box>
 
