@@ -156,7 +156,7 @@ export default function Home() {
 
             <Box mb={14}>
             <Heading as="h2" size="md" mb={10}>
-              Miscellaneous
+              Other Collaborations
             </Heading>
             <Experience
               image="/iitg.svg"
