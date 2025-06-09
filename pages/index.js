@@ -77,7 +77,7 @@ export default function Home() {
             stack="Robotics • Autonomous Mobile Robotics • Engines, Motors and Mobility • Vibrations and Control • Optimization"
             toggleable={false}
           />
-
+{/* 
           <Heading as="h2" size="md" mt={14} mb={10}>
             Projects
           </Heading>
@@ -129,7 +129,7 @@ export default function Home() {
             image="/apple.png"
             desc="Apple detection pipeline with YOLOv8, achieving 85.2% accuracy. Developed 3D point clouds using COLMAP and DBSCAN for clustering apple points. Applied RANSAC for ground and trunk detection, improving yield estimation by 16%."
             stack="Python • YOLOv8 • 3D Reconstruction • Filtering"
-          />
+          /> */}
 
           <Box mb={14}>
             <Heading as="h2" size="md" mb={10}>
