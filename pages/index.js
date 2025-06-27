@@ -136,7 +136,7 @@ export default function Home() {
             </Heading>
 
             <Experience
-              image="/Coderabbit.png"
+              image="/CodeRabbit.png"
               href="https://www.coderabbit.ai/"
               side="Jun 2025 - Present"
               title="Software Engineering Intern"
