@@ -186,7 +186,7 @@ export default function Home() {
             <Experience
               image="/iitg.svg"
               href="https://www.bits-pilani.ac.in/"
-              side="Dec 2019 - May 2022"
+              side="Jun 2022 - Jul 2022"
               title="Summer Researcher"
               desc="Developed robotic grasping pipeline using Haar Wavelet Transform to detect slip and load, modelled the appropriate force range"
               stack="Python • MATLAB"
