@@ -29,7 +29,7 @@ export default function Home() {
               <Heading as="h1" size="lg">
                 Hardik Gupta
               </Heading>
-              <Text>24. Graduate Student. Robots / Computer Science.</Text>
+              <Text>25. Graduate Student. Robots / Computer Science.</Text>
               <Text></Text>
               <Link color="white" opacity={0.5} href="/resume.pdf">
                 Resume
@@ -44,12 +44,11 @@ export default function Home() {
             About
           </Heading>
           <Text>
-            I am a <s>first-year</s> second-year graduate student at{" "}
+            I am a second-year graduate student at{" "}
             <a href="https://twin-cities.umn.edu/">
               University of Minnesota, Twin Cities
             </a>
-            , pursuing a Master’s in Robotics. Currently, I serve as a Graduate
-            Teaching Assistant, mentoring students.
+            , pursuing a Master’s in Robotics. Highly curious about ML Infra/Inference
           </Text>
         </Box>
 
@@ -64,7 +63,7 @@ export default function Home() {
             side="2023 - present"
             title="University of Minnesota, Twin Cities"
             desc="Master's (M.Sc.) in Robotics"
-            stack="Artificial Intelligence • Computer Vision • Machine Learning • Reinforcement Learning • Natural Language Processing • Robotic Systems"
+            stack="Data Structure and Algorithms • Artificial Intelligence  • Natural Language Processing • Operating Systems"
             toggleable={false}
           />
 
@@ -74,7 +73,7 @@ export default function Home() {
             side="2018 - 2023"
             title="Birla Institute of Technology and Science"
             desc="Bachelor's (B.E.) in Mechanical Engineering and Master's (M.Sc.) in Biological Science"
-            stack="Robotics • Autonomous Mobile Robotics • Engines, Motors and Mobility • Vibrations and Control • Optimization"
+            stack="Robotics • Autonomous Mobile Robotics • Vibrations and Control • Optimization"
             toggleable={false}
           />
 {/* 
@@ -137,11 +136,20 @@ export default function Home() {
             </Heading>
 
             <Experience
+              image="/Coderabbit.png"
+              href="https://www.coderabbit.ai/"
+              side="Jun 2025 - Present"
+              title="Software Engineering Intern"
+              desc="Building"
+              stack="AI Workflows"
+            />
+
+            <Experience
               image="/grad_logo.png"
               href="https://twin-cities.umn.edu/"
-              side="Jun 2024 - present"
+              side="Jun 2024 - Present"
               title="Graduate Research Assistant"
-              desc="Collaborated on developing a Bayesian inference model to analyze consumer decision-making using LLMs for optimal product evaluation. Conducted research on Transformer architecture, including tokenization and attention mechanisms, to understand Generative AI's role in consumer behavior."
+              desc="Collaborated on developing a Bayesian inference model. Now working on RAG pipeline"
               stack="Large Language Models • Mathematical Modeling"
             />
 
@@ -150,8 +158,17 @@ export default function Home() {
               href="https://www.ubs.com/us/en.html"
               side="Feb 2023 - Jun 2023"
               title="Financial Analyst Intern"
-              desc="Automated the analysis of Pension IPV, reducing CPV graph preparation time by 40%. Utilized Python, UBS tools, Totem, and Bloomberg to enhance financial data analysis"
+              desc="Automated the analysis of IPV and utilising Python, UBS tools, Totem, and Bloomberg to enhance financial data analysis"
               stack="Python • Excel Macros • VBA"
+            />
+
+            <Experience
+              image="/ericsson.png"
+              href="https://www.ericsson.com/en"
+              side="Aug 2020 - Dec 2020"
+              title="Data Scientist Intern"
+              desc="Pre-processed and analyzed the telecom's site outage parameters’ and developed a primary machine learning classification pipeline for the same."
+              stack="Python • Data Analysis"
             />
 
             <Box mb={14}>
@@ -159,29 +176,28 @@ export default function Home() {
               Other Collaborations
             </Heading>
             <Experience
+              image="/nus.png"
+              href="https://www.nus.edu.sg/"
+              side="Aug 2022 - Dec 2022"
+              title="Researcher"
+              desc="Non-linear Model Predictive Control for collision avoidance"
+              stack="Control Systems • Optimization"
+            />
+            <Experience
               image="/iitg.svg"
               href="https://www.bits-pilani.ac.in/"
               side="Dec 2019 - May 2022"
               title="Summer Researcher"
-              desc="Worked on robotic grasping using Haar Wavelet Transform to detect slip and load, which modeled the appropriate force range"
-              stack="Python • Data Analysis"
+              desc="Developed robotic grasping pipeline using Haar Wavelet Transform to detect slip and load, modelled the appropriate force range"
+              stack="Python • MATLAB"
             />
             <Experience
               image="/bits.png"
               href="https://www.bits-pilani.ac.in/"
               side="Dec 2019 - May 2022"
-              title="Undergraduate Student Researcher"
-              desc="Worked on three different projects: Evolutionary bioinformatics, Design of PEM cell and Hodgkin-Huxley model"
-              stack="Python • Data Analysis"
-            />
-
-            <Experience
-              image="/ericsson.png"
-              href="https://www.ericsson.com/en"
-              side="Aug 2020 - Dec 2020"
-              title="Data Scientist Intern Intern"
-              desc="Pre-processed and analyzed the telecom's site outage parameters’ and developed a primary machine learning classification pipeline for the same."
-              stack="Python • Data Analysis"
+              title="Researcher"
+              desc="Three different projects: Evolutionary bioinformatics, Design of PEM cell and Hodgkin-Huxley model"
+              stack="Python • Modeling • Bioinformatics"
             />
 
             
@@ -249,8 +265,9 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            website repository!
+            website repository
           </a>
+           ! Fastest way to reach me is through a in-person conversation. But email/linkedin is also good
         </p>
       </Box>
     </>
