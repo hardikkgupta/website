@@ -139,7 +139,7 @@ export default function Home() {
               image="/CodeRabbit.png"
               href="https://www.coderabbit.ai/"
               side="Jun 2025 - Present"
-              title="Software Engineering Intern"
+              title="Software Engineer Intern"
               desc="Building"
               stack="AI Workflows"
             />
