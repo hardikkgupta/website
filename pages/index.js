@@ -248,6 +248,13 @@ export default function Home() {
               toggleable={false}
             />
             <Experience
+              side="Goodreads"
+              title="@hardikgupta"
+              href="https://www.goodreads.com/user/show/98711647-hardik-gupta"
+              mb={4}
+              toggleable={false}
+            />
+            <Experience
               side="Leetcode"
               title="@hardikkgupta"
               href="https://leetcode.com/u/hardikkgupta/"
