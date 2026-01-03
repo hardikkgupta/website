@@ -29,7 +29,7 @@ export default function Home() {
               <Heading as="h1" size="lg">
                 Hardik Gupta
               </Heading>
-              <Text>25. Graduate Student. Robots / Computer Science.</Text>
+              <Text>Robots / Computer Science</Text>
               <Text></Text>
               <Link color="white" opacity={0.5} href="/resume.pdf">
                 Resume
@@ -48,7 +48,7 @@ export default function Home() {
             <a href="https://twin-cities.umn.edu/">
               University of Minnesota, Twin Cities
             </a>
-            , pursuing a Master’s in Robotics. Highly curious about ML Infra/Inference
+            , pursuing a Master’s in Robotics. Highly curious about ML distributed / Infra
           </Text>
         </Box>
 
@@ -136,21 +136,30 @@ export default function Home() {
             </Heading>
 
             <Experience
+              image="/tesla.png"
+              href="https://www.tesla.com/"
+              side="Jan 2026 - Present"
+              title="Data Engineer Intern"
+              desc="Working"
+              stack="Data Models • Statistical Analysis"
+            />
+
+            <Experience
               image="/CodeRabbit.png"
               href="https://www.coderabbit.ai/"
-              side="Jun 2025 - Present"
+              side="Jun 2025 - Dec 2025"
               title="Software Engineer Intern"
-              desc="Building"
-              stack="AI Workflows"
+              desc="Data and ELT pipelines"
+              stack="Data Pipelines • Growth"
             />
 
             <Experience
               image="/grad_logo.png"
               href="https://twin-cities.umn.edu/"
-              side="Jun 2024 - Present"
+              side="Jan 2024 - May 2025"
               title="Graduate Research Assistant"
               desc="Collaborated on developing a Bayesian inference model. Now working on RAG pipeline"
-              stack="Large Language Models • Mathematical Modeling"
+              stack="LLMs • Mathematical Modeling"
             />
 
             <Experience
@@ -265,17 +274,18 @@ export default function Home() {
           </Box>
         </Box>
 
-        <p>
+        <Text textAlign="center" mt={6} opacity={0.6}>
           A big shoutout to Maxime Bonhomme for his awesome{" "}
-          <a
+          <Link
             href="https://github.com/maximebonhomme/bonhomme-2022"
-            target="_blank"
-            rel="noopener noreferrer"
+            isExternal
+            textDecoration="underline"
           >
-            website repository
-          </a>
-           ! Fastest way to reach me is through a in-person conversation. But email/linkedin is also good
-        </p>
+            website repository!
+          </Link>{" "}
+          Fastest way to reach me is through an in-person conversation.
+          But email / LinkedIn is also good.
+        </Text>
       </Box>
     </>
   );
