@@ -139,8 +139,8 @@ export default function Home() {
               image="/tesla.png"
               href="https://www.tesla.com/"
               side="Jan 2026 - Present"
-              title="Data Engineer Intern"
-              desc="Working"
+              title="AI Data Engineer Intern"
+              desc="Integrating agents into data pipelines based on internal framework"
               stack="Data Models • Statistical Analysis"
             />
 
