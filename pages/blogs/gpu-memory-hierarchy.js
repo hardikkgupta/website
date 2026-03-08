@@ -29,7 +29,7 @@ export default function GPUMemoryHierarchy() {
 
       <Box py="115px" px={4} maxWidth={500} mx="auto">
         <NextLink href="/blogs" passHref>
-          <Link color="white" opacity={0.5} fontSize="sm" mb={6} display="inline-block">
+          <Link color="white" opacity={0.5} fontSize="md" mb={6} display="inline-block">
             &larr; Back to Blogs
           </Link>
         </NextLink>
