@@ -116,16 +116,16 @@ CPU/System RAM     ← slowest`}
         </Heading>
         <Text mb={4}><u>Physics and economics</u>:</Text>
         <CodeBlock>
-{`SRAM (fast):  ~$100   per MB  — needs a lot of chip area
-DRAM (slow):  ~$0.01  per MB  — separate cheap chips`}
+{`SRAM (fast):  ~$100   per MB, needs a lot of chip area
+DRAM (slow):  ~$0.01  per MB, separate cheap chips`}
         </CodeBlock>
-        <Text mb={2}>To store a 70B parameter model at FP16:</Text>
+        <Text mb={2}>To store a 70B parameter at FP16:</Text>
         <CodeBlock>
-{`In SRAM: 140 GB × $100/MB   = $14,000,000
-In DRAM: 140 GB × $0.01/MB  = $1,400`}
+{`In SRAM: 140 GB x $100/MB   = $14M just for memory
+In DRAM: 140 GB x $0.01/MB  = $1,400`}
         </CodeBlock>
         <Text mb={4}>
-          Even if we could afford it, you <u>can&apos;t physically fit</u> 140 GB of
+          Considering even if we can afford it, you <u>can&apos;t fit</u> 140 GB of
           SRAM on a chip. The entire H100 die area is ~814 mm&sup2;. 140 GB of
           SRAM would need ~50,000 mm&sup2;.
         </Text>
@@ -143,18 +143,18 @@ In DRAM: 140 GB × $0.01/MB  = $1,400`}
 
         {/* Global Memory */}
         <Heading as="h3" size="sm" mb={2}>
-          Global Memory (HBM) — The warehouse
+          Global Memory (HBM) - The warehouse
         </Heading>
         <CodeBlock>
 {`Capacity:    80 GB (HBM on GPU board)
 Bandwidth:   3.35 TB/s on H100
-Latency:     400–600 clock cycles
+Latency:     400-600 clock cycles
 Visibility:  Every thread on the entire GPU`}
         </CodeBlock>
         <Text mb={6}>
           <u>Why it&apos;s slow:</u> The data has to travel off the GPU
           die, through silicon interposers, to separate HBM chips and back. Even
-          at the speed of light, this takes hundreds of nanoseconds. And
+          at the speed of light, this would take hundreds of nanoseconds. And
           there are millions of threads competing for this bandwidth.
         </Text>
 
@@ -169,15 +169,15 @@ Latency:     200 clock cycles
 Visibility:  Every thread on entire GPU`}
         </CodeBlock>
         <Text mb={4}>
-          We don&apos;t explicitly control L2 — the hardware automatically keeps
-          recently accessed data here. If you read address <Code>X</Code> from global
+          We don&apos;t explicitly control L2, the hardware automatically keeps
+          recently accessed data here. If you read address <Code>X</Code> from the global
           memory, the L2 cache keeps a copy. If you read <Code>X</Code> again soon, you get
           the cached copy (much faster).
         </Text>
         <Text mb={6}>
-          <u>Why it exists:</u>{" "}
-          <strong>Temporal locality:</strong> programs tend to access the same data repeatedly.{" "}
-          <strong>Spatial locality:</strong> if you access address 100, you&apos;ll probably access 101 soon,
+          <u>Why it exists?</u>{" "}
+          <strong>Temporal Locality:</strong> programs tend to access the same data repeatedly.{" "}
+          <strong>Spatial locality:</strong> If you access address 100, you will probably access 101 soon,
           so the cache loads a whole &quot;cache line&quot;.
         </Text>
 
@@ -188,9 +188,9 @@ Visibility:  Every thread on entire GPU`}
         <CodeBlock>
 {`Capacity:    228 KB SRAM per SM (configurable split)
 Bandwidth:   19 TB/s
-Latency:     20–28 clock cycles
-Visibility:  L1 → threads on THIS SM (hardware managed)
-             Shared → threads in SAME BLOCK (programmer managed)`}
+Latency:     20-28 clock cycles
+Visibility:  L1: threads on THIS SM only (hardware managed)
+             Shared Memory: threads in the SAME BLOCK only (programmer managed)`}
         </CodeBlock>
         <Text mb={4}>
           This is where it gets interesting. NVIDIA gives us a choice:
@@ -202,11 +202,12 @@ Visibility:  L1 → threads on THIS SM (hardware managed)
           </ListItem>
           <ListItem>
             <strong>Shared Memory mode:</strong> You (the programmer) explicitly
-            load data here and explicitly read from it. Full control, but you manage it.
+            load data here with special instructions and explicitly read from it.
+            This gives you control but requires you to manage it.
           </ListItem>
         </UnorderedList>
         <Text mb={2}>
-          On modern NVIDIA GPUs, L1 and shared memory are the <u>same physical SRAM</u> — you configure the split:
+          On modern NVIDIA GPUs, the L1 and shared memory are the <u>same physical SRAM</u>, you configure how much goes into each:
         </Text>
         <CodeBlock>
 {`Option A:  128 KB shared  +  100 KB L1
@@ -214,8 +215,8 @@ Option B:   64 KB shared  +  164 KB L1
 Option C:  228 KB shared  +    0 KB L1`}
         </CodeBlock>
         <Text mb={6}>
-          (exact sizes vary by GPU). This is powerful: load data from slow HBM
-          once, put it in shared memory, then ALL threads in the block can
+          (exact sizes vary by GPU). This makes it really powerful: You load the data from the slow HBM
+          once, put it in shared memory, and then ALL threads in the block can
           access it repeatedly at ~10x the speed. <u>This is the #1 optimization
           technique in CUDA programming.</u>
         </Text>
@@ -228,9 +229,9 @@ Option C:  228 KB shared  +    0 KB L1`}
 {`Capacity:    256 KB register file per SM
 Bandwidth:   Essentially infinite (same as computation)
 Latency:     0 extra clock cycles
-Visibility:  Only the owning thread — completely private`}
+Visibility:  Only the owning thread. Completely private.`}
         </CodeBlock>
-        <Text mb={2}>The catch — they are <u>divided among threads</u>:</Text>
+        <Text mb={2}>The catch is they are <u>divided among threads</u>:</Text>
         <CodeBlock>
 {`SM has 256 KB = 65,536 registers (32-bit each)
 
@@ -239,8 +240,8 @@ If you need 64 registers: only 1024 threads can be active
   → Lower occupancy → Fewer warps to hide latency → potential slowdown`}
         </CodeBlock>
         <Text mb={10}>
-          This is the <u>register pressure</u> problem: use too many
-          registers and you hurt occupancy. Use too few and you spill to slower
+          This is the <u>register pressure</u> problem, using too many
+          registers and you hurt occupancy. Using too few and you spill to slower
           memory.
         </Text>
 
@@ -252,7 +253,7 @@ If you need 64 registers: only 1024 threads can be active
 {`Registers       ──(6x faster)──→  Shared Memory
 Shared Memory   ──(6x faster)──→  HBM
 
-Each level: ~6x slower but 100–1000x larger`}
+Each level: ~6x slower but 100-1000x larger`}
         </CodeBlock>
         <Box mb={10} />
 
@@ -270,14 +271,16 @@ Each level: ~6x slower but 100–1000x larger`}
 H100 can do:   ~990 TFLOPS (FP16)
 H100 can load: ~3.35 TB/s from HBM
 
-Break-even: 990,000 / 3,350 = ~295 FLOPs per byte`}
+Break even point: 990 x 1000 / 3.35 x 1000 = ~295 FLOPs per byte`}
         </CodeBlock>
         <UnorderedList mb={6} spacing={1}>
           <ListItem>
-            FEWER than 295 FLOPs/byte → <u><strong>MEMORY-BOUND</strong></u>
+            If our operation does FEWER than 295 FLOPs per byte, we are{" "}
+            <u><strong>MEMORY-BOUND</strong></u>
           </ListItem>
           <ListItem>
-            MORE than 295 FLOPs/byte → <u><strong>COMPUTE-BOUND</strong></u>
+            If our operation does MORE than 295 FLOPs per byte, we are{" "}
+            <u><strong>COMPUTE-BOUND</strong></u>
           </ListItem>
         </UnorderedList>
 
@@ -292,19 +295,19 @@ For each element:
   Do    1 FLOP  (compare with 0)
   Store 2 bytes (FP16 output)
 
-Arithmetic intensity = 1 FLOP / 4 bytes = 0.25 FLOPs/byte`}
+Arithmetic intensity = 1 FLOP/4 bytes = 0.25 FLOPs/bytes`}
         </CodeBlock>
         <Text mb={6}>
-          0.25 is far below 295 — <u>we are MEMORY-BOUND</u>.
+          We are <u>MEMORY-BOUND</u>.
         </Text>
 
         <Heading as="h3" size="sm" mb={2}>
           Operator Fusion
         </Heading>
         <Text mb={4}>
-          If we fuse <Code>MatMul + Add + ReLU</Code> and avoid writing the MatMul
+          If we fuse <Code>MatMul + Add + ReLU</Code> and somehow avoid writing the MatMul
           output to HBM, reading it for Add, writing Add&apos;s output, reading
-          it for ReLU — instead <u>the intermediate values stay in registers</u>.
+          it for ReLU. Instead <u>the intermediate values stay in registers</u>.
         </Text>
         <Box mb={10} />
 
@@ -322,16 +325,16 @@ Arithmetic intensity = 1 FLOP / 4 bytes = 0.25 FLOPs/byte`}
         </Text>
         <CodeBlock>
 {`GOOD (coalesced):
-  Thread 0 → address 0
-  Thread 1 → address 4
-  Thread 2 → address 8  ...
+  Thread 0 reads address 0
+  Thread 1 reads address 4
+  Thread 2 reads address 8  ...
   Hardware combines into ONE 128-byte transaction
 
 BAD (uncoalesced):
-  Thread 0 → address 0
-  Thread 1 → address 1000
-  Thread 2 → address 2000  ...
-  Hardware issues 32 SEPARATE transactions → wastes 32x bandwidth`}
+  Thread 0 reads address 0
+  Thread 1 reads address 1000
+  Thread 2 reads address 2000  ...
+  Hardware issues 32 SEPARATE transactions. Wastes 32x bandwidth`}
         </CodeBlock>
         <Text mb={6}>
           <u>Rule of thumb:</u> Adjacent threads should access adjacent
@@ -349,10 +352,10 @@ BAD (uncoalesced):
         <CodeBlock>
 {`Bank assignment:  address % 32 = bank number
 
-NO CONFLICT:   Thread i → address i     (each hits different bank)
-CONFLICT:      Thread 0 & Thread 16 → bank 0  (serialised, 2x slower)
-WORST CASE:    All 32 threads → same bank      (32x slower)
-EXCEPTION:     All threads → SAME address       (broadcast, no conflict)`}
+NO CONFLICT:   Thread i accesses address i (each thread hits a different bank)
+CONFLICT:      Thread 0 and Thread 16 both access bank 0 (serialised, 2x slower)
+WORST CASE:    All 32 threads access the same bank (32x slower)
+EXCEPTION:     All threads access the SAME address (broadcast, no conflict)`}
         </CodeBlock>
 
         {/* Memory Alignment */}
@@ -364,8 +367,8 @@ EXCEPTION:     All threads → SAME address       (broadcast, no conflict)`}
           at an <u>unaligned address</u>, the hardware needs extra transactions:
         </Text>
         <CodeBlock>
-{`Aligned:    tensor at address 0 → one 128-byte load
-Unaligned:  tensor at address 7 → needs two 128-byte loads (wasted bandwidth)`}
+{`Aligned:    tensor starts at address 0, one 128-byte load gets first 128 bytes
+Unaligned:  tensor starts at address 7, needs two 128-byte loads, wasted bandwidth`}
         </CodeBlock>
       </Box>
     </>
