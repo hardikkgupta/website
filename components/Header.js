@@ -1,5 +1,5 @@
 import { Flex, Image } from "@chakra-ui/react"
-// import { ConnectKitButton } from "connectkit"
+import NextLink from "next/link"
 import { useEffect, useState } from "react"
 
 export const Header = () => {
@@ -23,7 +23,9 @@ export const Header = () => {
     >
       <Image src="/logo.svg" alt="Bonhomme" />
 
-      {/* <ConnectKitButton accountStatus="avatar" chainStatus="icon" showBalance={false} /> */}
+      <NextLink href="/blogs" passHref>
+        <a style={{ color: "white", opacity: 0.7, fontSize: "14px" }}>Blogs</a>
+      </NextLink>
     </Flex>
   )
 }
