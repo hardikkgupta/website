@@ -13,6 +13,11 @@ import NextLink from "next/link";
 
 const blogs = [
   {
+    title: "ML Inference Compilers",
+    date: "February 18, 2026",
+    slug: "ml-inference-compilers",
+  },
+  {
     title: "GPU Memory Hierarchy",
     date: "January 5, 2026",
     slug: "gpu-memory-hierarchy",
