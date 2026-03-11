@@ -12,8 +12,16 @@ import NextLink from "next/link";
 
 function CodeBlock({ children }) {
   return (
-    <Box bg="whiteAlpha.100" p={3} borderRadius="md" mb={4} overflowX="auto">
-      <Text fontFamily="mono" fontSize="sm" whiteSpace="pre">
+    <Box
+      bg="whiteAlpha.50"
+      p={4}
+      borderRadius="md"
+      borderLeft="3px solid"
+      borderLeftColor="whiteAlpha.200"
+      mb={5}
+      overflowX="auto"
+    >
+      <Text fontFamily="mono" fontSize="xs" whiteSpace="pre" lineHeight="1.7" opacity={0.85}>
         {children}
       </Text>
     </Box>
@@ -27,22 +35,22 @@ export default function GPUMemoryHierarchy() {
         <title>GPU Memory Hierarchy - Hardik Gupta</title>
       </Head>
 
-      <Box py="115px" px={4} maxWidth={500} mx="auto">
+      <Box py="115px" px={4} maxWidth={600} mx="auto" lineHeight="1.8">
         <NextLink href="/blogs" passHref>
-          <Link color="white" opacity={0.5} fontSize="md" mb={6} display="inline-block">
+          <Link color="white" opacity={0.5} fontSize="md" mb={8} display="inline-block">
             &larr; Back to Blogs
           </Link>
         </NextLink>
 
-        <Heading as="h1" size="lg" mb={2}>
+        <Heading as="h1" size="lg" mb={3} lineHeight="1.3">
           GPU Memory Hierarchy
         </Heading>
-        <Text opacity={0.5} fontSize="sm" mb={10}>
+        <Text opacity={0.4} fontSize="sm" mb={12}>
           January 5, 2026
         </Text>
 
         {/* Level 0 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mb={5}>
           Level 0: Why does Memory even matter?
         </Heading>
         <Text mb={4}>
@@ -61,11 +69,11 @@ CPU/System RAM     ← slowest`}
         <Box mb={10} />
 
         {/* Level 1 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Level 1: What is GPU Physically?
         </Heading>
         <Text mb={2}>Simply GPU has:</Text>
-        <UnorderedList mb={10} spacing={1}>
+        <UnorderedList mb={10} spacing={2}>
           <ListItem>A lot of simple math units</ListItem>
           <ListItem>A small amount of <u>fast memory</u> (on the chip itself)</ListItem>
           <ListItem>A large amount of <u>slow memory</u> (separate chips on the board)</ListItem>
@@ -73,17 +81,17 @@ CPU/System RAM     ← slowest`}
         </UnorderedList>
 
         {/* Level 2 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Level 2: Two Types of Memory
         </Heading>
         <Text mb={4}>
           There are fundamentally only <u>two types of memory</u> on a GPU:
         </Text>
 
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Type A: On-chip memory (SRAM)
         </Heading>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>On the same silicon die as the compute units</ListItem>
           <ListItem>
             Made up of <u>6 transistors per bit</u> (called SRAM: Static RAM)
@@ -93,10 +101,10 @@ CPU/System RAM     ← slowest`}
           <ListItem>On H100: <Code>50 MB</Code></ListItem>
         </UnorderedList>
 
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Type B: Off-chip memory (HBM/DRAM)
         </Heading>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Separate chips stacked on top of or next to GPU die</ListItem>
           <ListItem>
             Made up of <u>1 transistor + 1 capacitor per bit</u> (called DRAM)
@@ -111,7 +119,7 @@ CPU/System RAM     ← slowest`}
         </Text>
 
         {/* Level 3 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Level 3: Why can&apos;t we make all memory fast
         </Heading>
         <Text mb={4}><u>Physics and economics</u>:</Text>
@@ -136,13 +144,13 @@ In DRAM: 140 GB x $0.01/MB  = $1,400`}
         </Text>
 
         {/* Level 4 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Level 4: The Actual Hierarchy
         </Heading>
         <Text mb={6}>Let&apos;s build from Bottom to Top.</Text>
 
         {/* Global Memory */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Global Memory (HBM) - The warehouse
         </Heading>
         <CodeBlock>
@@ -159,7 +167,7 @@ Visibility:  Every thread on the entire GPU`}
         </Text>
 
         {/* L2 Cache */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           L2 Cache
         </Heading>
         <CodeBlock>
@@ -182,7 +190,7 @@ Visibility:  Every thread on entire GPU`}
         </Text>
 
         {/* L1 / Shared Memory */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           L1 Cache / Shared Memory
         </Heading>
         <CodeBlock>
@@ -195,7 +203,7 @@ Visibility:  L1: threads on THIS SM only (hardware managed)
         <Text mb={4}>
           This is where it gets interesting. NVIDIA gives us a choice:
         </Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>
             <strong>L1 Cache mode:</strong> Hardware automatically caches global
             memory accesses. You don&apos;t control it.
@@ -222,7 +230,7 @@ Option C:  228 KB shared  +    0 KB L1`}
         </Text>
 
         {/* Registers */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Registers
         </Heading>
         <CodeBlock>
@@ -246,7 +254,7 @@ If you need 64 registers: only 1024 threads can be active
         </Text>
 
         {/* Level 5 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Level 5: Numbers that matter
         </Heading>
         <CodeBlock>
@@ -258,11 +266,11 @@ Each level: ~6x slower but 100-1000x larger`}
         <Box mb={10} />
 
         {/* Level 6 */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Level 6: Why this matters for ML
         </Heading>
 
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           The &quot;Arithmetic Intensity&quot; concept
         </Heading>
         <CodeBlock>
@@ -273,7 +281,7 @@ H100 can load: ~3.35 TB/s from HBM
 
 Break even point: 990 x 1000 / 3.35 x 1000 = ~295 FLOPs per byte`}
         </CodeBlock>
-        <UnorderedList mb={6} spacing={1}>
+        <UnorderedList mb={6} spacing={2}>
           <ListItem>
             If our operation does FEWER than 295 FLOPs per byte, we are{" "}
             <u><strong>MEMORY-BOUND</strong></u>
@@ -284,7 +292,7 @@ Break even point: 990 x 1000 / 3.35 x 1000 = ~295 FLOPs per byte`}
           </ListItem>
         </UnorderedList>
 
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           ReLU is memory bound
         </Heading>
         <CodeBlock>
@@ -301,7 +309,7 @@ Arithmetic intensity = 1 FLOP/4 bytes = 0.25 FLOPs/bytes`}
           We are <u>MEMORY-BOUND</u>.
         </Text>
 
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Operator Fusion
         </Heading>
         <Text mb={4}>
@@ -311,12 +319,12 @@ Arithmetic intensity = 1 FLOP/4 bytes = 0.25 FLOPs/bytes`}
         </Text>
         <Box mb={10} />
 
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Few things to keep in mind
         </Heading>
 
         {/* Coalesced */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Coalesced Memory Access
         </Heading>
         <Text mb={4}>
@@ -342,7 +350,7 @@ BAD (uncoalesced):
         </Text>
 
         {/* Bank Conflicts */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Bank Conflicts (Shared Memory)
         </Heading>
         <Text mb={4}>
@@ -359,7 +367,7 @@ EXCEPTION:     All threads access the SAME address (broadcast, no conflict)`}
         </CodeBlock>
 
         {/* Memory Alignment */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           Memory Alignment
         </Heading>
         <Text mb={4}>

@@ -12,8 +12,16 @@ import NextLink from "next/link";
 
 function CodeBlock({ children }) {
   return (
-    <Box bg="whiteAlpha.100" p={3} borderRadius="md" mb={4} overflowX="auto">
-      <Text fontFamily="mono" fontSize="sm" whiteSpace="pre">
+    <Box
+      bg="whiteAlpha.50"
+      p={4}
+      borderRadius="md"
+      borderLeft="3px solid"
+      borderLeftColor="whiteAlpha.200"
+      mb={5}
+      overflowX="auto"
+    >
+      <Text fontFamily="mono" fontSize="xs" whiteSpace="pre" lineHeight="1.7" opacity={0.85}>
         {children}
       </Text>
     </Box>
@@ -27,22 +35,22 @@ export default function MLInferenceCompilers() {
         <title>ML Inference Compilers - Hardik Gupta</title>
       </Head>
 
-      <Box py="115px" px={4} maxWidth={500} mx="auto">
+      <Box py="115px" px={4} maxWidth={600} mx="auto" lineHeight="1.8">
         <NextLink href="/blogs" passHref>
-          <Link color="white" opacity={0.5} fontSize="md" mb={6} display="inline-block">
+          <Link color="white" opacity={0.5} fontSize="md" mb={8} display="inline-block">
             &larr; Back to Blogs
           </Link>
         </NextLink>
 
-        <Heading as="h1" size="lg" mb={2}>
+        <Heading as="h1" size="lg" mb={3} lineHeight="1.3">
           ML Inference Compilers
         </Heading>
-        <Text opacity={0.5} fontSize="sm" mb={10}>
+        <Text opacity={0.4} fontSize="sm" mb={12}>
           February 18, 2026
         </Text>
 
         {/* What is a Compiler? */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mb={5}>
           What is a Compiler?
         </Heading>
         <Text mb={4}>
@@ -65,14 +73,14 @@ Compilers:   ADD, R1, R2, R3 (CPU Instruction: add register 2 and 3, store in 1)
         </Text>
 
         {/* Why can't machine understand our language */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Why can&apos;t machine understand our language
         </Heading>
         <Text mb={4}>
           A GPU/CPU is made up of just transistors (kind of like tiny switches that are either ON (1) or
           OFF (0). It can only do a handful of primitive/fundamental jobs:
         </Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Add two numbers</ListItem>
           <ListItem>Multiply two numbers</ListItem>
           <ListItem>Compare two numbers</ListItem>
@@ -89,7 +97,7 @@ Compilers:   ADD, R1, R2, R3 (CPU Instruction: add register 2 and 3, store in 1)
         </Text>
 
         {/* What a compiler actually does */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           What a compiler actually does
         </Heading>
         <Text mb={4}>
@@ -110,7 +118,7 @@ Compilers:   ADD, R1, R2, R3 (CPU Instruction: add register 2 and 3, store in 1)
         </Text>
 
         {/* Traditional Compiler Example */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Traditional Compiler Example
         </Heading>
         <Text mb={2}>C code</Text>
@@ -142,7 +150,7 @@ Compilers:   ADD, R1, R2, R3 (CPU Instruction: add register 2 and 3, store in 1)
         </Text>
 
         {/* Compiling a Neural Network */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Compiling a Neural Network
         </Heading>
         <Text mb={4}>
@@ -168,33 +176,33 @@ Pool (Shrink the image) -> FC (Matrix Multiply) -> Softmax -> Output Probabiliti
         <Box mb={10} />
 
         {/* How Pytorch runs (Eager mode) */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           How Pytorch runs (Eager mode)
         </Heading>
         <Text mb={4}>
           Without a compiler, Pytorch executes this line by line:
         </Text>
         <Text mb={2}><em>Step 1:</em> Run conv on CPU</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>CPU tells GPU</ListItem>
           <ListItem>GPU runs it, writes 50 MB to HBM</ListItem>
           <ListItem>GPU done, signals CPU</ListItem>
         </UnorderedList>
         <Text mb={2}><em>Step 2:</em> Run ReLU on GPU</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>CPU tells GPU</ListItem>
           <ListItem>GPU reads 50 MB from HB, applies max(0, x), writes 50 MB to HBM</ListItem>
           <ListItem>GPU done, signals CPU</ListItem>
         </UnorderedList>
         <Text mb={2}><em>Step 3:</em> Run Pool on GPU</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>CPU tells GPU: &quot;run pooling kernel&quot;</ListItem>
           <ListItem>GPU reads 50 MB from HBM ... writes results back...</ListItem>
         </UnorderedList>
         <Text mb={10} fontStyle="italic">and so on...</Text>
 
         {/* The problem with this approach */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           The problem with this approach
         </Heading>
         <Text mb={2}><strong>Problem 1: Kernel launch overhead</strong></Text>
@@ -214,7 +222,7 @@ Pool (Shrink the image) -> FC (Matrix Multiply) -> Softmax -> Output Probabiliti
         </Text>
 
         {/* "Compiling" a Neural Network */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           &quot;Compiling&quot; a Neural Network
         </Heading>
         <Text mb={4}>
@@ -239,7 +247,7 @@ FusedFCSoftmax      (One kernel, intermediate data in registers)`}
         </Text>
 
         {/* Compiling for GPU */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Compiling for GPU
         </Heading>
         <Text mb={4}>
@@ -247,16 +255,16 @@ FusedFCSoftmax      (One kernel, intermediate data in registers)`}
           does it actually understand? This is not an easy answer. Let&apos;s first understand the flow.
         </Text>
         <Text mb={2}>GPU chip actually executes: <Code>SASS</Code> (Shader Assembly)</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Binary Machine code: Specific to the each GPU model</ListItem>
           <ListItem>Example: <Code>FFMA</Code></ListItem>
         </UnorderedList>
         <Text mb={2}>Humans can write: <Code>PTX</Code> (Parallel Thread Execution)</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>This is still low-level but doable</ListItem>
         </UnorderedList>
         <Text mb={2}>Programmers usually write: <Code>CUDA C++</Code></Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>C++ with GPU Extensions</ListItem>
         </UnorderedList>
         <Text mb={4}>
@@ -284,32 +292,32 @@ FusedFCSoftmax      (One kernel, intermediate data in registers)`}
         </Text>
 
         {/* What decisions does compilers make? */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           What decisions does compilers make?
         </Heading>
         <Text mb={2}><u>Graph Level (tensorRT, torch.compile)</u></Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Which operations to fuse together?</ListItem>
           <ListItem>What data layout to use? (NCHW / NHWC)</ListItem>
           <ListItem>What precision? (FP16, FP32)</ListItem>
           <ListItem>What order to execute operations? (minimize memory)</ListItem>
         </UnorderedList>
         <Text mb={2}><u>Kernel Level (CUDA/Triton)</u></Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>How many threads per block?</ListItem>
           <ListItem>How to tile the computation?</ListItem>
           <ListItem>What goes in shared memory vs registers?</ListItem>
           <ListItem>How to schedule instructions?</ListItem>
         </UnorderedList>
         <Text mb={2}><u>Machine Level (PTX -&gt; SASS)</u></Text>
-        <UnorderedList mb={10} spacing={1}>
+        <UnorderedList mb={10} spacing={2}>
           <ListItem>Which physical registers to assign</ListItem>
           <ListItem>Instruction scheduling (reorder to avoid pipeline stalls)</ListItem>
           <ListItem>Target specific optimizations (Tensor Core Instruction Selection)</ListItem>
         </UnorderedList>
 
         {/* ML Inference Compiler */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           ML Inference Compiler
         </Heading>
         <Text mb={10}>
@@ -318,7 +326,7 @@ FusedFCSoftmax      (One kernel, intermediate data in registers)`}
         </Text>
 
         {/* Operator Fusion */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           <u>Operator Fusion</u> (Dont go to warehouse directly)
         </Heading>
         <Text mb={2}><em>Before Fusion</em></Text>
@@ -342,40 +350,40 @@ FusedFCSoftmax      (One kernel, intermediate data in registers)`}
 
         <Text mb={4} fontStyle="italic">How to choose what to fuse and what not to</Text>
         <Text mb={2}><strong>CAN fuse:</strong></Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Elementwise ops in sequence (ReLU, Add, Multiply, Sigmoid)
-            <UnorderedList mt={1} spacing={1}>
+            <UnorderedList mt={1} spacing={2}>
               <ListItem>Each element is independent, so feasible</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>Reduction followed by elementwise (MatMul -&gt; BiasAdd -&gt; ReLU)
-            <UnorderedList mt={1} spacing={1}>
+            <UnorderedList mt={1} spacing={2}>
               <ListItem>Apply Bias and ReLU inside the matmul&apos;s innermost</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>The Flash Attention pattern</ListItem>
         </UnorderedList>
         <Text mb={2}><strong>CANNOT fuse</strong></Text>
-        <UnorderedList mb={10} spacing={1}>
+        <UnorderedList mb={10} spacing={2}>
           <ListItem>Two large Matmuls back to back
-            <UnorderedList mt={1} spacing={1}>
+            <UnorderedList mt={1} spacing={2}>
               <ListItem>Each needs the full result of the previous one before starting</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>Operations with different parallelism patterns
-            <UnorderedList mt={1} spacing={1}>
+            <UnorderedList mt={1} spacing={2}>
               <ListItem>Reduction along x axis and followed by reduction along the y axis</ListItem>
             </UnorderedList>
           </ListItem>
           <ListItem>When the intermediate tensor is needed elsewhere in the graph
-            <UnorderedList mt={1} spacing={1}>
+            <UnorderedList mt={1} spacing={2}>
               <ListItem>If another operation also reads Conv, then intermediate results can&apos;t workout</ListItem>
             </UnorderedList>
           </ListItem>
         </UnorderedList>
 
         {/* Precision Selection */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           <u>Precision Selection</u> (Use smaller numbers when possible)
         </Heading>
         <CodeBlock>
@@ -423,7 +431,7 @@ Layer 2 outputs: values between -1000 to 1000`}
         </Text>
 
         {/* Layout Optimization */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           <u>Layout Optimization</u> (Organise the warehouse for faster picking)
         </Heading>
         <Text mb={4}>Same data, different arrangements in memory</Text>
@@ -463,7 +471,7 @@ Good for: Tensor Cores (which can process across channels)`}
         </Text>
 
         {/* Memory Planning */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           <u>Memory Planning</u> Don&apos;t Rent more space than you need
         </Heading>
         <Text mb={4}>
@@ -489,16 +497,16 @@ With planning:    Peak = 300 MB`}
         </Text>
 
         {/* Kernel Selection / Auto-Tuning */}
-        <Heading as="h3" size="sm" mb={2}>
+        <Heading as="h3" size="sm" mt={8} mb={3}>
           <u>Kernel Selection / Auto - Tuning</u>: Pick up the best tool
         </Heading>
         <Text mb={4}>
           For same operation (for ex: Conv), there are multiple possible algorithms:
         </Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Algorithm 1: Direct Convolution: Simple, works for all</ListItem>
           <ListItem>Algorithm 2: im2col + GEMM:
-            <UnorderedList mt={1} spacing={1}>
+            <UnorderedList mt={1} spacing={2}>
               <ListItem>Convert convolution to matrix multiply</ListItem>
               <ListItem>Fast for large channels, wastes memory for the im2col buffer</ListItem>
             </UnorderedList>
@@ -510,13 +518,13 @@ With planning:    Peak = 300 MB`}
         </Text>
 
         {/* Why compiling ML Workloads is Hard */}
-        <Heading as="h2" size="md" mb={4}>
+        <Heading as="h2" size="md" mt={14} mb={5}>
           Why compiling ML Workloads is Hard
         </Heading>
 
         <Text mb={2}><strong>Hard Problem 1: Fusion Search Space is Enormous</strong></Text>
         <Text mb={2}>Given a graph with 100 operations</Text>
-        <UnorderedList mb={6} spacing={1}>
+        <UnorderedList mb={6} spacing={2}>
           <ListItem>Any subset of operations MIGHT be feasible</ListItem>
           <ListItem>This is NP-hard problem</ListItem>
           <ListItem>Compiler uses heuristics but dont always find the best solution</ListItem>
@@ -525,7 +533,7 @@ With planning:    Peak = 300 MB`}
         <Text mb={2}><strong>Hard Problem 2: Tiling is a Multi-Dimensional Optimization</strong></Text>
         <Text mb={2}>A matrix multiply: <Code>C[M, N] = A[M, K] x B[K, N]</Code></Text>
         <Text mb={2}>To tile for the GPU:</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Choose TILE_M: How many rows of C per thread block</ListItem>
           <ListItem>Choose TILE_N: How many columns?</ListItem>
           <ListItem>Choose TILE_K: How deep is the reduction stage?</ListItem>
@@ -533,7 +541,7 @@ With planning:    Peak = 300 MB`}
           <ListItem>Choose number of pipeline stages</ListItem>
         </UnorderedList>
         <Text mb={2}>Each combination has different:</Text>
-        <UnorderedList mb={6} spacing={1}>
+        <UnorderedList mb={6} spacing={2}>
           <ListItem>Shared memory usage</ListItem>
           <ListItem>Register usage</ListItem>
           <ListItem>Memory access patterns</ListItem>
@@ -542,24 +550,24 @@ With planning:    Peak = 300 MB`}
 
         <Text mb={2}><strong>Hard Problem 3: Dynamic Shapes</strong></Text>
         <Text mb={2}>STATIC shapes (easy for compiler):</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Input is always [batch = 32, channels = 3, height = 224, width = 224]</ListItem>
           <ListItem>Compiler optimizes once, runs forever</ListItem>
         </UnorderedList>
         <Text mb={2}>DYNAMIC shapes (hard for compiler):</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>LLM input</ListItem>
           <ListItem>Batch size changes based on load</ListItem>
           <ListItem>Image resolution varies</ListItem>
         </UnorderedList>
         <Text mb={2}>Why this is hard:</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>Optimal tile sizes depend on tensor dimension</ListItem>
           <ListItem>Memory planning depends on tensor sizes</ListItem>
           <ListItem>Fusion depends on shapes</ListItem>
         </UnorderedList>
         <Text mb={2}>Solution:</Text>
-        <UnorderedList mb={6} spacing={1}>
+        <UnorderedList mb={6} spacing={2}>
           <ListItem>Shape bucketing: compile for [128, 256, 512, 1024, ...] and round up to nearest</ListItem>
           <ListItem>Shape specialisation: JIT-compile is a new kernel where new shape appears</ListItem>
         </UnorderedList>
@@ -571,7 +579,7 @@ H100 (2022)
 B200 (2024)`}
         </CodeBlock>
         <Text mb={2}>Each generation changes:</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>What instructions are available</ListItem>
           <ListItem>What tile sizes are efficient</ListItem>
           <ListItem>How memory saves</ListItem>
@@ -587,7 +595,7 @@ B200 (2024)`}
 {`(a + b) + c != a + (b + c) in floating point`}
         </CodeBlock>
         <Text mb={2}>When you change precision (FP32 -&gt; FP16 -&gt; INT8):</Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>You lose numerical precision</ListItem>
           <ListItem>Errors accumulate</ListItem>
         </UnorderedList>
@@ -600,7 +608,7 @@ B200 (2024)`}
         <Text mb={4}>
           A 70B parameter model at FP16 = 140 GB. A GPU usually can hold 80 GB. Therefore we need to:
         </Text>
-        <UnorderedList mb={4} spacing={1}>
+        <UnorderedList mb={4} spacing={2}>
           <ListItem>PARTITION</ListItem>
           <ListItem>INSERT communication operations</ListItem>
           <ListItem>OVERLAP communication with computation</ListItem>

@@ -31,8 +31,8 @@ export default function Blogs() {
         <title>Blogs - Hardik Gupta</title>
       </Head>
 
-      <Box py="115px" px={4} maxWidth={500} mx="auto">
-        <Heading as="h1" size="lg" mb={10}>
+      <Box py="115px" px={4} maxWidth={600} mx="auto">
+        <Heading as="h1" size="lg" mb={12} lineHeight="1.3">
           Blogs
         </Heading>
 
@@ -40,15 +40,15 @@ export default function Blogs() {
           <Tbody>
             {blogs.map((blog) => (
               <Tr key={blog.slug}>
-                <Td px={0} py={2} borderBottom="none">
+                <Td px={0} py={3} borderBottom="none">
                   <NextLink href={`/blogs/${blog.slug}`} passHref>
                     <Link textDecoration="underline" fontSize="md">
                       {blog.title}
                     </Link>
                   </NextLink>
                 </Td>
-                <Td px={0} py={2} borderBottom="none" textAlign="right">
-                  <Text fontSize="md">{blog.date}</Text>
+                <Td px={0} py={3} borderBottom="none" textAlign="right">
+                  <Text fontSize="md" opacity={0.5}>{blog.date}</Text>
                 </Td>
               </Tr>
             ))}
