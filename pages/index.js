@@ -48,7 +48,7 @@ export default function Home() {
             <a href="https://twin-cities.umn.edu/">
               University of Minnesota, Twin Cities 
             </a>
-            and Biology and MechE at{" "}
+             and Biology and MechE at{" "}
             <a href="https://www.bits-pilani.ac.in/">
               BITS, Pilani
             </a>
