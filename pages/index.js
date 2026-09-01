@@ -44,11 +44,14 @@ export default function Home() {
             About
           </Heading>
           <Text>
-            I am a second-year graduate student at{" "}
+            I am currently working at Tesla as Data Engineer. In the past, I've enjoyed reading about GPU, evolutionary biology and operating systems. I studied Robotics at{" "}
             <a href="https://twin-cities.umn.edu/">
               University of Minnesota, Twin Cities
             </a>
-            , pursuing a Master’s in Robotics. Highly curious about ML distributed / Infra
+            and Biology and MechE at{" "}
+            <a href="https://www.bits-pilani.ac.in/">
+              Birla Institute of Technology and Science, Pilani
+            </a>
           </Text>
         </Box>
 
@@ -138,8 +141,17 @@ export default function Home() {
             <Experience
               image="/tesla.png"
               href="https://www.tesla.com/"
-              side="Jan 2026 - Present"
-              title="AI Data Engineer Intern"
+              side="Jul 2026 - Present"
+              title="Data Engineer"
+              desc="Integrating agents into data pipelines based on internal framework"
+              stack="Data Models • Statistical Analysis"
+            />
+
+            <Experience
+              image="/tesla.png"
+              href="https://www.tesla.com/"
+              side="Jan 2026 - May 2026"
+              title="Data Engineer Intern"
               desc="Integrating agents into data pipelines based on internal framework"
               stack="Data Models • Statistical Analysis"
             />
