@@ -46,15 +46,15 @@ export default function Home() {
           <Text>
             I am currently working at Tesla as Data Engineer. In the past, I've enjoyed reading about GPU, evolutionary biology and operating systems. I studied Robotics at{" "}
             <a href="https://twin-cities.umn.edu/">
-              University of Minnesota, Twin Cities
+              University of Minnesota, Twin Cities 
             </a>
             and Biology and MechE at{" "}
             <a href="https://www.bits-pilani.ac.in/">
-              Birla Institute of Technology and Science, Pilani
+              BITS, Pilani
             </a>
           </Text>
         </Box>
-
+{/* 
         <Box mb={14}>
           <Heading as="h2" size="md" mb={10}>
             Education
@@ -78,7 +78,7 @@ export default function Home() {
             desc="Bachelor's (B.E.) in Mechanical Engineering and Master's (M.Sc.) in Biological Science"
             stack="Robotics • Autonomous Mobile Robotics • Vibrations and Control • Optimization"
             toggleable={false}
-          />
+          /> */}
 {/* 
           <Heading as="h2" size="md" mt={14} mb={10}>
             Projects
