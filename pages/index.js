@@ -284,7 +284,6 @@ export default function Home() {
             />
           </Box>
           </Box>
-        </Box>
 
         <Text textAlign="center" mt={6} opacity={0.6}>
           A big shoutout to Maxime Bonhomme for his awesome{" "}
