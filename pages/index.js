@@ -4,6 +4,7 @@ import {
   Text,
   Heading,
   GridItem,
+  Image,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { Grid } from "../components/Grid";
@@ -36,6 +37,8 @@ export default function Home() {
                 as="button"
                 color="white"
                 opacity={0.5}
+                display="inline-flex"
+                alignItems="center"
                 onClick={() => {
                   const article =
                     luckyArticles[
@@ -45,6 +48,12 @@ export default function Home() {
                 }}
               >
                 I&apos;m feeling lucky
+                <Image
+                  ml={2}
+                  src="/arrow-link.svg"
+                  alt=""
+                  transform="translateY(1px)"
+                />
               </Link>
               <Text></Text>
             </Box>
