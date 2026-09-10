@@ -10,6 +10,7 @@ import { Grid } from "../components/Grid";
 import { Experience } from "../components/Experience";
 import Cursor from "../components/Cursor";
 import { Avatar } from "../components/Avatar";
+import { luckyArticles } from "../utils/luckyArticles";
 
 export default function Home() {
   return (
@@ -31,8 +32,19 @@ export default function Home() {
               </Heading>
               <Text>Robots / Computer Science</Text>
               <Text></Text>
-              <Link color="white" opacity={0.5} href="/resume.pdf">
-                Resume
+              <Link
+                as="button"
+                color="white"
+                opacity={0.5}
+                onClick={() => {
+                  const article =
+                    luckyArticles[
+                      Math.floor(Math.random() * luckyArticles.length)
+                    ];
+                  window.open(article.url, "_blank", "noopener,noreferrer");
+                }}
+              >
+                I&apos;m feeling lucky
               </Link>
               <Text></Text>
             </Box>
@@ -67,7 +79,6 @@ export default function Home() {
             title="University of Minnesota, Twin Cities"
             desc="Master's (M.Sc.) in Robotics"
             stack="Data Structure and Algorithms • Artificial Intelligence  • Natural Language Processing • Operating Systems"
-            toggleable={false}
           />
 
           <Experience
@@ -77,7 +88,6 @@ export default function Home() {
             title="Birla Institute of Technology and Science"
             desc="Bachelor's (B.E.) in Mechanical Engineering and Master's (M.Sc.) in Biological Science"
             stack="Robotics • Autonomous Mobile Robotics • Vibrations and Control • Optimization"
-            toggleable={false}
           /> */}
 {/* 
           <Heading as="h2" size="md" mt={14} mb={10}>
@@ -245,42 +255,36 @@ export default function Home() {
               title="@hardikgupta1999"
               href="mailto:hardikgupta1999@gmail.com"
               mb={4}
-              toggleable={false}
             />
             <Experience
               side="Github"
               title="@hardikkgupta"
               href="https://github.com/hardikkgupta"
               mb={4}
-              toggleable={false}
             />
             <Experience
               side="LinkedIn"
               title="@hardikguptaa"
               href="https://www.linkedin.com/in/hardikguptaa/"
               mb={4}
-              toggleable={false}
             />
             <Experience
               side="X"
               title="@HardikkGuptaa"
               href="https://x.com/HardikkGuptaa"
               mb={4}
-              toggleable={false}
             />
             <Experience
               side="Goodreads"
               title="@hardikgupta"
               href="https://www.goodreads.com/user/show/98711647-hardik-gupta"
               mb={4}
-              toggleable={false}
             />
             <Experience
               side="Leetcode"
               title="@hardikkgupta"
               href="https://leetcode.com/u/hardikkgupta/"
               mb={4}
-              toggleable={false}
             />
           </Box>
           </Box>
